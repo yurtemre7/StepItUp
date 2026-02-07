@@ -1,7 +1,0 @@
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.exe
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.ico
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.dll
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.deps.json
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.runtimeconfig.json
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.dll.config
-C:\Users\emrey\Desktop\WindowsAppsEmre\StepItUp.pdb
