@@ -1,15 +1,16 @@
-# StepItUp Overlay
+# StepItUp - Elsword Counter App
 
-A lightweight overlay application that provides a counter with global F8 key detection, memory save/load functionality, and max count limits.
+An Elsword-focused counter application designed to track runs, titles, achievements, and everything related to counting up in the game! Perfect for Elsword players who want to keep track of their progress, farming sessions, and accomplishments.
 
 ## Features
 
-- **Global F8 Detection**: Press F8 anywhere on your computer to increment the counter (when enabled)
-- **Counter Controls**: Manual increment/decrement with visual counter display
-- **Max Count Limit**: Set a maximum value to prevent the counter from going beyond a certain point
-- **Memory System**: Save and load counter states with associated text labels
-- **Persistent Settings**: All settings are saved between application sessions
-- **Hamburger Menu**: Clean interface with organized menu options
+- **Global F8 Detection**: Press F8 anywhere on your computer to increment your Elsword counter (when enabled)
+- **Elsword Session Tracking**: Manual increment/decrement with visual counter display for tracking runs, titles, or achievements
+- **Progress Limits**: Set a maximum value to track completion goals (e.g., title requirements, achievement thresholds)
+- **Memory System**: Save and load different Elsword counter states with custom labels (e.g., "Demon Avenger Titles", "Rune Runs", "Achievement Progress")
+- **Persistent Settings**: All Elsword tracking data is saved between application sessions
+- **Overlay Interface**: Lightweight overlay that stays on top while you play Elsword
+- **Hamburger Menu**: Clean interface with organized menu options for managing your Elsword counters
 
 ## Dependencies
 
@@ -54,24 +55,32 @@ dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=
 ## Usage
 
 1. **Starting the Application**: Run the executable or use `dotnet run` from the project directory
-2. **Moving the Window**: Drag the window by clicking and holding anywhere on the overlay
-3. **Using the Counter**:
-   - Use the +/- buttons to manually increment/decrement the counter
-   - Press the Reset button to reset the counter to zero
+2. **Moving the Window**: Drag the window by clicking and holding anywhere on the overlay (position it conveniently while playing Elsword)
+3. **Tracking Elsword Progress**:
+   - Use the +/- buttons to manually increment/decrement your counter for runs, titles, or achievements
+   - Press the Reset button to reset the counter when starting a new tracking session
 4. **Global F8 Detection**:
    - Toggle the "F8 OFF/ON" switch to enable/disable global F8 detection
-   - When enabled, pressing F8 anywhere on your computer (except when this app is focused) will increment the counter
+   - When enabled, press F8 anywhere on your computer (except when this app is focused) to increment your Elsword counter
 5. **Setting Max Count**:
-   - Enter a number in the "Max" field
+   - Enter a number in the "Max" field (e.g., number of titles needed for a milestone, achievement requirement)
    - Click "Set Max" to apply the limit
    - The counter will stop incrementing once it reaches this value
 6. **Memory System**:
    - Click the hamburger menu (☰) in the top-left corner
    - Select "Memory" to open the memory management dialog
-   - Save the current state or load a previously saved state
+   - Save different Elsword tracking states (e.g., "Blade Master Farming", "Runes Collected", "Titles Earned") or load a previously saved state
 7. **Other Options**:
    - Access "App Info" from the hamburger menu to view application information
    - Use "Quit App" to close the application
+
+## Elsword Use Cases
+
+- **Title Tracking**: Count how many titles you've earned or how many remain for a milestone
+- **Run Counting**: Track how many times you've completed specific dungeons or quests
+- **Achievement Progress**: Monitor your progress toward achievement completion
+- **Farming Sessions**: Keep track of how many farming attempts you've made
+- **Event Participation**: Count your participation in limited-time Elsword events
 
 ## Troubleshooting
 
