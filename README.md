@@ -1,68 +1,91 @@
-# StepItUp Overlay Application
+# StepItUp Overlay
 
-## Overview
-StepItUp is a lightweight Windows WPF overlay application designed to serve as a counter utility. It provides a transparent, always-on-top window that allows users to increment, decrement, and reset a numeric counter while optionally labeling it with custom text.
+A lightweight overlay application that provides a counter with global F8 key detection, memory save/load functionality, and max count limits.
 
 ## Features
-- **Transparent Overlay Window**: Semi-transparent window that stays on top of other applications
-- **Counter Functionality**: Increment (+), decrement (-), and reset buttons for tracking numbers
-- **Custom Label**: Text field to add a custom label or topic to the counter
-- **Persistent Storage**: Settings and counter values are saved between sessions
-- **Draggable Interface**: Window can be moved by dragging anywhere on the interface
-- **Quick Close Button**: Easy access close button in the top-right corner
 
-## Technical Details
-- **Platform**: .NET 6.0 Windows
-- **UI Framework**: Windows Presentation Foundation (WPF)
-- **Language**: C#
-- **Architecture**: XAML-based UI with code-behind logic
-- **Persistence**: Uses application settings to store counter value and text between sessions
+- **Global F8 Detection**: Press F8 anywhere on your computer to increment the counter (when enabled)
+- **Counter Controls**: Manual increment/decrement with visual counter display
+- **Max Count Limit**: Set a maximum value to prevent the counter from going beyond a certain point
+- **Memory System**: Save and load counter states with associated text labels
+- **Persistent Settings**: All settings are saved between application sessions
+- **Hamburger Menu**: Clean interface with organized menu options
 
-## User Interface
-The application features a compact, semi-transparent window with the following elements:
-- Title bar with "StepItUp Overlay" and application icon
-- Close button (top-right corner)
-- Main counter display showing the current number
-- Control buttons: minus (-), plus (+), and reset
-- Text input field for custom labeling
-- Custom styling with rounded buttons and transparent text fields
+## Dependencies
 
-## Functionality
-- **Increment/Decrement**: Click '+' or '-' buttons to adjust the counter
-- **Reset**: Click 'Reset' button to clear the counter and label (with confirmation dialog)
-- **Persistence**: Counter value and text are automatically saved when changed
-- **Window Management**: Drag anywhere on the window to move it around the screen
-- **Game Integration**: Contains code to focus on a specific game process named "x2"
+To build and run this application, you'll need:
 
-## Project Structure
-```
-StepItUp/
-├── App.xaml              # Application definition
-├── App.xaml.cs           # Application logic
-├── MainWindow.xaml       # Main window UI
-├── MainWindow.xaml.cs    # Main window event handlers
-├── StepItUp.csproj       # Project configuration
-├── AssemblyInfo.cs       # Assembly metadata
-├── Properties/           # Application properties and settings
-│   ├── Settings.settings # User settings (counter value, text)
-│   └── Resources.resx    # Application resources
-└── Resources/            # Resource files
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) or later
+- Windows OS (the application uses Windows-specific APIs for global key detection)
+
+## Building the Application
+
+### Prerequisites
+
+1. Install the .NET 6.0 SDK from the official Microsoft website
+2. Clone or download this repository to your local machine
+
+### Build Instructions
+
+Open a command prompt or terminal in the project directory and run:
+
+```bash
+# Restore dependencies
+dotnet restore
+
+# Build the application
+dotnet build
+
+# Build and run the application
+dotnet run
 ```
 
-## Use Cases
-This application is ideal for:
-- Gamers tracking scores, levels, or achievements
-- Students counting study sessions or practice repetitions
-- Professionals monitoring tasks or activities
-- Anyone needing a quick, always-accessible counter overlay
+### Creating an Executable
 
-## Installation
-1. Clone or download the repository
-2. Open the solution in Visual Studio
-3. Build and run the application
-4. The overlay window will appear with default settings
+To create a standalone executable for distribution:
 
-## Notes
-- The application window is designed to be always on top
-- Settings are stored per-user and persist between application restarts
-- The application includes functionality to switch focus to a game process named "x2"
+```bash
+# Publish as a self-contained executable for Windows
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+
+# The executable will be located in bin/Release/net6.0-windows/win-x64/publish/
+```
+
+## Usage
+
+1. **Starting the Application**: Run the executable or use `dotnet run` from the project directory
+2. **Moving the Window**: Drag the window by clicking and holding anywhere on the overlay
+3. **Using the Counter**:
+   - Use the +/- buttons to manually increment/decrement the counter
+   - Press the Reset button to reset the counter to zero
+4. **Global F8 Detection**:
+   - Toggle the "F8 OFF/ON" switch to enable/disable global F8 detection
+   - When enabled, pressing F8 anywhere on your computer (except when this app is focused) will increment the counter
+5. **Setting Max Count**:
+   - Enter a number in the "Max" field
+   - Click "Set Max" to apply the limit
+   - The counter will stop incrementing once it reaches this value
+6. **Memory System**:
+   - Click the hamburger menu (☰) in the top-left corner
+   - Select "Memory" to open the memory management dialog
+   - Save the current state or load a previously saved state
+7. **Other Options**:
+   - Access "App Info" from the hamburger menu to view application information
+   - Use "Quit App" to close the application
+
+## Troubleshooting
+
+- **F8 Key Not Working**: Make sure the toggle is switched to "F8 ON" and that no other applications are capturing the F8 key
+- **Application Not Starting**: Ensure you have the .NET 6.0 runtime installed
+- **Settings Not Saving**: Check that you have write permissions to the application directory
+
+## Development
+
+This application is built using WPF (Windows Presentation Foundation) with C# and .NET 6.0. The global key detection uses Windows API hooks through P/Invoke calls.
+
+### Key Components
+
+- `MainWindow.xaml/.cs`: Main application window and logic
+- `GlobalHotkeyManager.cs`: Handles global keyboard hook for F8 detection
+- `StateMemory.cs`: Manages saving and loading of counter states
+- `MemoryManagementDialog.xaml/.cs`: Dialog for managing saved states
