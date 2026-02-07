@@ -39,6 +39,7 @@ namespace StepItUp
             // Load the settings
             count = Properties.Settings.Default.CounterValue;
             numberLabel.Content = count.ToString();
+            maxTextBox.Text = Properties.Settings.Default.MaxText;
             topicTextBox.Text = Properties.Settings.Default.CounterText;
         }
 
@@ -56,8 +57,10 @@ namespace StepItUp
                 count = 0;
                 numberLabel.Content = count.ToString();
                 topicTextBox.Text = "";
+                maxTextBox.Text = "";
 
                 Properties.Settings.Default.CounterText = "";
+                Properties.Settings.Default.MaxText = "";
                 Properties.Settings.Default.CounterValue = 0;
                 Properties.Settings.Default.Save();
             }
@@ -82,6 +85,10 @@ namespace StepItUp
 
         private void Minus_Click(object sender, RoutedEventArgs e)
         {
+            if (count == 0)
+            {
+                return;
+            }
             count--;
             numberLabel.Content = count.ToString();
 
@@ -95,6 +102,13 @@ namespace StepItUp
         {
             // Save the text setting
             Properties.Settings.Default.CounterText = topicTextBox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void MaxText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Save the text setting
+            Properties.Settings.Default.MaxText = maxTextBox.Text;
             Properties.Settings.Default.Save();
         }
     }

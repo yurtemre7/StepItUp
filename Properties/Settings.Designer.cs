@@ -46,5 +46,20 @@ namespace StepItUp.Properties {
                 this["CounterText"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MaxText
+        {
+            get
+            {
+                return ((string)(this["MaxText"]));
+            }
+            set
+            {
+                this["MaxText"] = value;
+            }
+        }
     }
 }
